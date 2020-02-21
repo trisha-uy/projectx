@@ -1,13 +1,22 @@
-function Student(name,section){
-    this.name=name;
-    this.section=section;
+class Person{
+    constructor(name, gender){
+        this.name=name;
+        this.gender=gender;
+    }
+    walk (distance){
+        console.log(`${this.name} can walk up to ${distance} kms...`);
+    }
+
 }
-let juan =new Student("juan dela cruz"," 2ITE");
-let pedro=new Student("pedro"," 2ITA");
-//Student.prototype.displayStudent=function(){
-    //document.write(`${this.name} is enrolled in${this.section}`)
-//}
-//juan.displayStudent();
-Student.prototype.school=" UST";
-document.write(`${pedro.name} is enrolled in${pedro.school}`)
-pedro.displayStudent();
+class Student extends Person{
+    constructor(name, gender, school){
+        super(name, gender);
+        this.school=school;
+    }
+    study(subject){
+        console.log(`${this.name} is enrolled in ${subject}`);
+    }
+}
+let p1= new Person("juan dela cruz", "male");
+let s1 = new Student("cathy morales", "female", "UST");
+s1.study("ICS2609");
